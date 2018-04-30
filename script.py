@@ -71,17 +71,19 @@ while True:
         bottom *= 4
         left *= 4
 
-        cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
-
-        cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
-        font = cv2.FONT_HERSHEY_DUPLEX
-        cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
-
         height, width, _ = frame.shape
+        font = cv2.FONT_HERSHEY_DUPLEX
+
         if name is not "Unknown":
+            cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 2)
+            cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 255, 0), cv2.FILLED)
             cv2.putText(frame, 'Permission Granted !!', (int(width / 4), height - 50), font, 1.0, (255, 255, 255), 1, cv2.LINE_AA)
         else:
+            cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
+            cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
             cv2.putText(frame, 'Permission Denied !!', (int(width / 4), height - 50), font, 1.0, (255, 255, 255), 1, cv2.LINE_AA)
+
+        cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
 
     cv2.imshow('Video', frame)
 
