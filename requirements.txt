@@ -7,3 +7,4 @@ dlib>=19.3.0
 numpy
 Pillow
 opencv-contrib-python
+requests
