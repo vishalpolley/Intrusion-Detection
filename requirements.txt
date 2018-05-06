@@ -1,4 +1,9 @@
-numpy
-requests
-opencv-contrib-python
+boost==0.1
+cmake==0.7.1
+boost-py
+face_recognition_models
 face_recognition
+dlib>=19.3.0
+numpy
+Pillow
+opencv-contrib-python
