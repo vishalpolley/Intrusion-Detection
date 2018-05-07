@@ -8,7 +8,7 @@ IP_Webcam = False
 flag = False
 
 if IP_Webcam is True:
-    url = "http://192.168.1.100:8080/shot.jpg" # IP Webcam
+    video_capture = cv2.VideoCapture('http://192.168.1.100:8080/videofeed') # IP Webcam
 else:
     video_capture = cv2.VideoCapture(0)
 
@@ -24,12 +24,7 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS FACES
             FACE_ENCODING   blob  NOT NULL );''')
 
 while(True):
-    if IP_Webcam is True:
-        img_resp = requests.get(url)    # IP Webcam
-        img_arr = np.array(bytearray(img_resp.content), dtype = np.uint8)
-        frame = cv2.imdecode(img_arr, -1)
-    else:
-        ret, frame = video_capture.read()
+    ret, frame = video_capture.read()
 
     cv2.imshow('Video', frame)
     flag = False
