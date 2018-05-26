@@ -23,7 +23,7 @@ The face recognition modules have been derived from [https://github.com/ageitgey
 
 * In the `script.py` and `capture.py` file, modify the IP address contained in this line, to the `IP address` for your device
   ```
-  video_capture = cv2.VideoCapture('http://192.168.43.1:8080/videofeed')
+  video_capture = cv2.VideoCapture('http://192.168.1.100:8080/videofeed')
   ```
 
 ## Running the Project
